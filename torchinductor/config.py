@@ -1,7 +1,7 @@
 import os
 
 # add some debug printouts
-debug = False
+debug = True
 
 # dead code elimination
 dce = False
@@ -57,14 +57,15 @@ class cpp:
     threads = -1  # set to cpu_count()
     simdlen = None
     min_chunk_size = 4096
-    cxx = (
-        None,  # download gcc12 from conda-forge if conda is installed
-        "g++-12",
-        "g++-11",
-        "g++-10",
-        "clang++",
-        "g++",
-    )
+    cxx = "/usr/local/compiler/clang+llvm-15.0.0-x86_64-apple-darwin/bin/clang++"
+    # cxx = (
+    #     None,  # download gcc12 from conda-forge if conda is installed
+    #     "g++-12",
+    #     "g++-11",
+    #     "g++-10",
+    #     "clang++",
+    #     "g++",
+    # )
 
 
 # config specific to codegen/triton.py

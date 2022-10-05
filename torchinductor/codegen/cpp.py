@@ -3,7 +3,7 @@ import dataclasses
 import functools
 import multiprocessing
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Tuple, Any
 from typing import List
 
 import sympy
@@ -655,7 +655,8 @@ class LoopLevel:
         elif self.simd:
             line1 = f"#pragma omp {simd}{reduction}"
         elif not self.reduction_vars and codecache.is_gcc():
-            line1 = "#pragma GCC ivdep"
+            #line1 = "#pragma GCC ivdep"
+            line1 = ""
         else:
             line1 = ""
         line2 = f"for({INDEX_TYPE} {self.var}=0; {self.var}<{cexpr(self.size)}; ++{self.var})"
